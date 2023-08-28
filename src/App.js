@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Route, Routes } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
+import { ChakraProvider, Flex } from "@chakra-ui/react";
+import Nav from "./components/Nav";
+import InfoContent from "./InfoContent";
+import VisitContent from "./VisitContent";
+import RideContent from "./RideContent";
+import Footer from "./components/Footer";
+import Wayfinder from "./components/WayfinderTheme";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ChakraProvider theme={Wayfinder}>
+      <Flex direction="column" minH="100vh">
+        <Nav />
+        <AnimatePresence>
+          <Routes>
+            <Route path="/" element={<InfoContent />} />
+            <Route path="/visit" element={<VisitContent />} />
+            <Route path="/ride" element={<RideContent />} />
+          </Routes>
+        </AnimatePresence>
+
+        <Footer />
+      </Flex>
+    </ChakraProvider>
   );
 }
 
