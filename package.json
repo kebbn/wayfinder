@@ -1,9 +1,12 @@
 {
-  "name": "shuddle",
+  "name": "@kebbn/wayfinder",
+  "description": "Wayfinder is a design system built by @kebbn for Dribbble's Scaling Design Systems course. It provides theming and custom components for use on top of Chakra UI.",
   "version": "0.1.0",
-  "homepage": "https://kebbn.github.io/shuddle",
-  "private": true,
+  "private": false,
+  "main": "dist/index.js",
+  "module": "dist/index.js",
   "dependencies": {
+    "@babel/polyfill": "^7.12.1",
     "@chakra-ui/icons": "^2.1.0",
     "@chakra-ui/react": "^2.8.0",
     "@emotion/react": "^11.11.1",
@@ -22,10 +25,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "cross-env NODE_ENV=production babel src/ --out-dir dist/ --copy-files",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -48,6 +49,27 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^6.0.0"
+    "@babel/cli": "^7.22.10",
+    "@babel/core": "^7.22.11",
+    "@babel/preset-env": "^7.22.10",
+    "cross-env": "^7.0.3"
+  },
+  "babel": {
+    "presets": [
+      [
+        "@babel/env",
+        {
+          "targets": {
+            "edge": "17",
+            "firefox": "60",
+            "chrome": "67",
+            "safari": "11.1"
+          },
+          "useBuiltIns": "usage",
+          "corejs": "3.6.5"
+        }
+      ],
+      "@babel/preset-react"
+    ]
   }
 }
