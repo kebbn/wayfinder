@@ -1,10 +1,12 @@
 {
   "name": "@kebbn/wayfinder",
-  "description": "Wayfinder is a design system built by @kebbn for Dribbble's Scaling Design Systems course. It provides theming and custom components for use on top of Chakra UI.",
-  "version": "0.1.0",
+  "description": "Wayfinder is a design system built for the Shuddle app. It provides custom theming and components for use on top of Chakra UI.",
+  "version": "0.1.1",
   "private": false,
-  "main": "dist/index.js",
-  "module": "dist/index.js",
+  "main": "dist/index",
+  "module": "dist/index",
+  "types": "dist/index",
+  "license": "MIT",
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
     "@chakra-ui/icons": "^2.1.0",
@@ -69,7 +71,13 @@
           "corejs": "3.6.5"
         }
       ],
-      "@babel/preset-react"
+      "@babel/preset-typescript",
+      [
+        "@babel/preset-react",
+        {
+          "runtime": "automatic"
+        }
+      ]
     ]
   }
 }
