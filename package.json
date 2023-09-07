@@ -1,7 +1,7 @@
 {
   "name": "@kebbn/wayfinder",
   "description": "Wayfinder is a design system built for the Shuddle app. It provides custom theming and components for use on top of Chakra UI.",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "private": false,
   "main": "dist/index",
   "module": "dist/index",
